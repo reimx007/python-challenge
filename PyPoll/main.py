@@ -5,8 +5,8 @@ from collections import Counter
 
 # create various lists
 candidates = []    #list of all items in candidates column
-votes = []
-votesPCT = []
+votes = []     #list of number of votes per candidate
+votesPCT = [] # list of percentage of votes per candidate
 
 # open the csv data file
 poll_path = os.path.join("election_data.csv")
@@ -22,9 +22,6 @@ with open(poll_path, 'r') as csvfile:
 # get total number of votes
 numVotes = len(candidates)
 # create a set of candidates and then a list of unique candidates
-
-# set = set(candidates)
-# uniqueCandidates = (list(set))
 
 # use Counter to create a dictionary of canidates and number of
 # times they occur in the list / votes they recieved
@@ -51,3 +48,17 @@ for y in range(lenKeys):
 print(f'<><><><><><><><><><><><><><><>')
 maxVotesPos = votes.index(max(votes))
 print(f'The winner is {keys[maxVotesPos]} with {votesPCT[maxVotesPos]} percent of the votes')
+
+# open new txt file and write the same things to it
+f = open("poll_summary.txt", "w+")
+
+f.write("Election Results\n")
+f.write("<><><><><><><><><><><><><><><>\n")
+f.write(f'Total votes: {numVotes}\n')
+f.write(f'<><><><><><><><><><><><><><><>\n')
+for y in range(lenKeys):
+    votes.append(resultsDict[keys[y]])
+    votesPCT.append(round(float(resultsDict[keys[y]]/numVotes)*100,2))
+    f.write(f'Candidate: {keys[y]} | Votes: {votes[y]} | Percentage: {votesPCT[y]}\n')
+f.write(f'<><><><><><><><><><><><><><><>\n')
+f.write(f'The winner is {keys[maxVotesPos]} with {votesPCT[maxVotesPos]} percent of the votes\n')

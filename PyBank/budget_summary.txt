@@ -1,7 +1,0 @@
-Financial Analysis for county X
-------------------------
-Total months: 86
-Total: $38382578.0
-Average change: $446309.0465116279
-Greatest increase in profit: Feb-2012 | 1170593.0 | 25
-Greatest Decrease in profit: Sep-2013 | -1196225.0 | 25

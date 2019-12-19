@@ -47,7 +47,7 @@ with open(budget_path, 'r') as csvfile:
     # open new txt file and write to it
     f = open("budget_summary.txt", "w+")
 
-    f.write("Financial Analysis for county X\n")
+    f.write("Financial Analysis for County X\n")
     f.write("------------------------\n")
     f.write(f'Total months: {len(months)}\n')
     f.write(f'Total: ${(sum(netProfit))}\n')
